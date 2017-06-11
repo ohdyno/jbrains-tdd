@@ -12,4 +12,13 @@ public class FractionTest {
         assertEquals(zero, zero.add(zero));
     }
 
+    @Test
+    public void addingZeroToANonZeroFractionShouldYieldTheNonZeroFraction() {
+        Fraction zero = Fraction.ZERO;
+        Fraction fraction = new SimpleFraction(1, 3);
+
+        assertEquals(fraction, zero.add(fraction));
+        assertEquals(fraction, fraction.add(zero));
+    }
+
 }
