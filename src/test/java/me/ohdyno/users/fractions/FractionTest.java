@@ -21,4 +21,18 @@ public class FractionTest {
         assertEquals(fraction, fraction.add(zero));
     }
 
+    @Test
+    public void addingTwoSimpleFractionsShouldYieldTheirSum() {
+        Fraction twoThirds = new SimpleFraction(2, 3);
+        Fraction fiveThirds = new SimpleFraction(5, 3);
+
+        assertEquals(new SimpleFraction(7, 3), twoThirds.add(fiveThirds));
+    }
+
+    @Test
+    public void reducingALowestTermFractionYieldsTheSameFraction() {
+        Fraction twoThirds = new SimpleFraction(2, 3);
+        assertEquals(new SimpleFraction(2, 3), twoThirds.reducedForm());
+    }
+
 }
