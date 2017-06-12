@@ -10,6 +10,9 @@ public class Fraction {
     private final int denominator;
 
     public Fraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Denominator cannot be 0.");
+        }
         int divisor = new GreatestCommonDivisorCalculator(numerator, denominator).calculate();
         this.numerator = numerator / divisor;
         this.denominator = denominator / divisor;
