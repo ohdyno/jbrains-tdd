@@ -10,6 +10,14 @@ public class GreatestCommonDivisorCalculator {
     }
 
     public int calculate() {
+        if (this.a == 0) {
+            return this.b;
+        }
+
+        if (this.b == 0) {
+            return this.a;
+        }
+
         int divisor = 1;
         for (int i = 2; i <= Math.min(a, b); i++) {
             if (a % i == 0 && b % i == 0) {

@@ -19,4 +19,11 @@ class GreatestCommonDivisorCalculatorTest {
         assertEquals(multiplier, new GreatestCommonDivisorCalculator(3 * multiplier, 5 * multiplier).calculate());
     }
 
+    @Test
+    public void gcdOfZeroAndNIsN() {
+        int n = 3;
+        assertEquals(n, new GreatestCommonDivisorCalculator(0, n).calculate());
+        assertEquals(n, new GreatestCommonDivisorCalculator(n, 0).calculate());
+    }
+
 }
