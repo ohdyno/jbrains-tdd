@@ -1,6 +1,7 @@
 package me.ohdyno.users.fractions;
 
 import me.ohdyno.fractions.Fraction;
+import me.ohdyno.fractions.SimpleFraction;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,6 +28,16 @@ public class FractionTest {
         Fraction fiveThirds = new SimpleFraction(5, 3);
 
         assertEquals(new SimpleFraction(7, 3), twoThirds.add(fiveThirds));
+    }
+
+    @Test
+    public void addingFractionsThatSimplifyToWholeNumber() {
+        assertEquals(new SimpleFraction(2, 1), new SimpleFraction(8, 9).add(new SimpleFraction(10, 9)));
+    }
+
+    @Test
+    public void addingFractionsThatEqualsZero() {
+        assertEquals(Fraction.ZERO, new SimpleFraction(1, 2).add(new SimpleFraction(-1, 2)));
     }
 
     @Test

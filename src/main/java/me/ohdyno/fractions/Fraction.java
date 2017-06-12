@@ -1,7 +1,7 @@
 package me.ohdyno.fractions;
 
 public interface Fraction {
-    Fraction ZERO = new Zero();
+    Fraction ZERO = new SimpleFraction(0, 1);
 
     Fraction add(Fraction that);
 

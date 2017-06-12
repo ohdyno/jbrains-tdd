@@ -1,8 +1,6 @@
-package me.ohdyno.users.fractions;
+package me.ohdyno.fractions;
 
 import lombok.Value;
-import me.ohdyno.fractions.Fraction;
-import me.ohdyno.fractions.GreatestCommonDivisorCalculator;
 
 @Value
 public class SimpleFraction implements Fraction {
