@@ -1,7 +1,6 @@
 package me.ohdyno.users.fractions;
 
 import me.ohdyno.fractions.Fraction;
-import me.ohdyno.fractions.SimpleFraction;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,35 +15,35 @@ public class FractionTest {
     @Test
     public void addingZeroToANonZeroFractionShouldYieldTheNonZeroFraction() {
         Fraction zero = Fraction.ZERO;
-        Fraction fraction = new SimpleFraction(1, 3);
+        Fraction fraction = new Fraction(1, 3);
 
         assertEquals(fraction, zero.add(fraction));
         assertEquals(fraction, fraction.add(zero));
     }
 
     @Test
-    public void addingTwoSimpleFractionsShouldYieldTheirSum() {
-        Fraction twoThirds = new SimpleFraction(2, 3);
-        Fraction fiveThirds = new SimpleFraction(5, 3);
+    public void addingTwoFractionsShouldYieldTheirSum() {
+        Fraction twoThirds = new Fraction(2, 3);
+        Fraction fiveThirds = new Fraction(5, 3);
 
-        assertEquals(new SimpleFraction(7, 3), twoThirds.add(fiveThirds));
+        assertEquals(new Fraction(7, 3), twoThirds.add(fiveThirds));
     }
 
     @Test
     public void addingFractionsThatSimplifyToWholeNumber() {
-        assertEquals(new SimpleFraction(2, 1), new SimpleFraction(8, 9).add(new SimpleFraction(10, 9)));
+        assertEquals(new Fraction(2, 1), new Fraction(8, 9).add(new Fraction(10, 9)));
     }
 
     @Test
     public void addingFractionsThatEqualsZero() {
-        assertEquals(Fraction.ZERO, new SimpleFraction(1, 2).add(new SimpleFraction(-1, 2)));
+        assertEquals(Fraction.ZERO, new Fraction(1, 2).add(new Fraction(-1, 2)));
     }
 
     @Test
     public void creatingAFractionThatIsNotTheSimplestFormShouldYieldTheSimplestForm() {
-        assertEquals(new SimpleFraction(2, 3), new SimpleFraction(2, 3));
-        assertEquals(new SimpleFraction(2, 3), new SimpleFraction(2 * 2, 3 * 2));
-        assertEquals(new SimpleFraction(1, 3), new SimpleFraction(1 * 4, 3 * 4));
+        assertEquals(new Fraction(2, 3), new Fraction(2, 3));
+        assertEquals(new Fraction(2, 3), new Fraction(2 * 2, 3 * 2));
+        assertEquals(new Fraction(1, 3), new Fraction(1 * 4, 3 * 4));
     }
 
 }

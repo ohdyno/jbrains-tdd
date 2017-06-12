@@ -1,11 +1,23 @@
 package me.ohdyno.fractions;
 
-public interface Fraction {
-    Fraction ZERO = new SimpleFraction(0, 1);
+import lombok.Value;
 
-    Fraction add(Fraction that);
+@Value
+public class Fraction {
+    public static final Fraction ZERO = new Fraction(0, 1);
 
-    int getDenominator();
+    private final int numerator;
+    private final int denominator;
 
-    int getNumerator();
+    public Fraction(int numerator, int denominator) {
+        int divisor = new GreatestCommonDivisorCalculator(numerator, denominator).calculate();
+        this.numerator = numerator / divisor;
+        this.denominator = denominator / divisor;
+    }
+
+    public Fraction add(Fraction that) {
+        int commonDenominator = that.getDenominator() * this.denominator;
+        int numerator = that.getNumerator() * this.denominator + this.numerator * that.getDenominator();
+        return new Fraction(numerator, commonDenominator);
+    }
 }
