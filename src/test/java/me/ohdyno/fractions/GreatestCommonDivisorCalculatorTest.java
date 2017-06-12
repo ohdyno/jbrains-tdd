@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("GCD Test Cases")
-class GreatestCommonDivisorCalculatorTest {
+public class GreatestCommonDivisorCalculatorTest {
     @Test
     @DisplayName("GCD(1,x) = GCD(x,1) = 1")
     public void gcdOfOneAndAnythingElseIsOne() {

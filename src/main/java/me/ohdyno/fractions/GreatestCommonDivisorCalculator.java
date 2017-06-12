@@ -1,15 +1,15 @@
 package me.ohdyno.fractions;
 
-public class GreatestCommonDivisorCalculator {
+class GreatestCommonDivisorCalculator {
     private final int a;
     private final int b;
 
-    public GreatestCommonDivisorCalculator(int a, int b) {
+    GreatestCommonDivisorCalculator(int a, int b) {
         this.a = a;
         this.b = b;
     }
 
-    public int calculate() {
+    int calculate() {
         if (this.a == 0) {
             return this.b;
         }
