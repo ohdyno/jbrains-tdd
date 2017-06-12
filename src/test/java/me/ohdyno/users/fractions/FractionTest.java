@@ -1,18 +1,23 @@
 package me.ohdyno.users.fractions;
 
 import me.ohdyno.fractions.Fraction;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@DisplayName("Fraction Test Cases")
 public class FractionTest {
     @Test
+    @DisplayName("0 + 0 = 0")
     public void addingZeroesShouldYieldZeroAsResult() {
         Fraction zero = Fraction.ZERO;
         assertEquals(zero, zero.add(zero));
     }
 
     @Test
+    @DisplayName("0 + n = n + 0 = n")
     public void addingZeroToANonZeroFractionShouldYieldTheNonZeroFraction() {
         Fraction zero = Fraction.ZERO;
         Fraction fraction = new Fraction(1, 3);
@@ -22,6 +27,7 @@ public class FractionTest {
     }
 
     @Test
+    @DisplayName("2/3 + 5/3 = 7/3")
     public void addingTwoFractionsShouldYieldTheirSum() {
         Fraction twoThirds = new Fraction(2, 3);
         Fraction fiveThirds = new Fraction(5, 3);
