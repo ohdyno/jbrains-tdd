@@ -10,19 +10,14 @@ public class SimpleFraction implements Fraction {
     private final int denominator;
 
     public SimpleFraction(int numerator, int denominator) {
-        this.numerator = numerator;
-        this.denominator = denominator;
+        int divisor = new GreatestCommonDivisorCalculator(numerator, denominator).calculate();
+        this.numerator = numerator / divisor;
+        this.denominator = denominator / divisor;
     }
 
     public Fraction add(Fraction that) {
         int commonDenominator = that.getDenominator() * this.denominator;
         int numerator = that.getNumerator() * this.denominator + this.numerator * that.getDenominator();
-        return new SimpleFraction(numerator, commonDenominator).reducedForm();
-    }
-
-    @Override
-    public Fraction reducedForm() {
-        int divisor = new GreatestCommonDivisorCalculator(this.numerator, this.denominator).calculate();
-        return new SimpleFraction(this.numerator / divisor, this.denominator / divisor);
+        return new SimpleFraction(numerator, commonDenominator);
     }
 }

@@ -30,10 +30,10 @@ public class FractionTest {
     }
 
     @Test
-    public void reducingALowestTermFractionYieldsTheSameFraction() {
-        assertEquals(new SimpleFraction(2, 3), new SimpleFraction(2, 3).reducedForm());
-        assertEquals(new SimpleFraction(2, 3), new SimpleFraction(2 * 2, 3 * 2).reducedForm());
-        assertEquals(new SimpleFraction(1, 3), new SimpleFraction(1 * 4, 3 * 4).reducedForm());
+    public void creatingAFractionThatIsNotTheSimplestFormShouldYieldTheSimplestForm() {
+        assertEquals(new SimpleFraction(2, 3), new SimpleFraction(2, 3));
+        assertEquals(new SimpleFraction(2, 3), new SimpleFraction(2 * 2, 3 * 2));
+        assertEquals(new SimpleFraction(1, 3), new SimpleFraction(1 * 4, 3 * 4));
     }
 
 }

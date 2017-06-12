@@ -8,8 +8,4 @@ public interface Fraction {
     int getDenominator();
 
     int getNumerator();
-
-    default Fraction reducedForm() {
-        return this;
-    }
 }
