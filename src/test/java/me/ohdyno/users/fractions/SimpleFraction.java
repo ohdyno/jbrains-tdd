@@ -2,6 +2,7 @@ package me.ohdyno.users.fractions;
 
 import lombok.Value;
 import me.ohdyno.fractions.Fraction;
+import me.ohdyno.fractions.GreatestCommonDivisorCalculator;
 
 @Value
 public class SimpleFraction implements Fraction {
@@ -21,19 +22,7 @@ public class SimpleFraction implements Fraction {
 
     @Override
     public Fraction reducedForm() {
-        int maxPossibleDivisor = Math.min(this.numerator, this.denominator);
-        int maxDivisor = calculateMaxDivisor(maxPossibleDivisor, this.numerator, this.denominator);
-        return new SimpleFraction(this.numerator / maxDivisor, this.denominator / maxDivisor);
-    }
-
-    private int calculateMaxDivisor(int maxPossibleDivisor, int a, int b) {
-        int maxDivisor = 1;
-        for (int i = 2; i < maxPossibleDivisor; i++) {
-            if (a % i == 0 && b % i == 0) {
-                maxDivisor = i;
-            }
-        }
-
-        return maxDivisor;
+        int divisor = new GreatestCommonDivisorCalculator(this.numerator, this.denominator).calculate();
+        return new SimpleFraction(this.numerator / divisor, this.denominator / divisor);
     }
 }
